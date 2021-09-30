@@ -87,5 +87,5 @@ class LaunchctlEnviron(Mixin, UserDict):
 
 if __name__ == '__main__':
     x = LaunchctlEnviron()
-    print 'PYTHONPATH' in x
-    print x['PYTHONPATH']
+    print('PYTHONPATH' in x)
+    print(x['PYTHONPATH'])

@@ -68,7 +68,7 @@ def diff_envvars(before, after, reduce=True):
     return diff
 
 
-def daemonize(chdir='/', umask=0002):
+def daemonize(chdir='/', umask=0o002):
 
     if os.fork(): # fork, and kill the parent
         os._exit(0)

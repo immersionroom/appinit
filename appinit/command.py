@@ -50,7 +50,7 @@ def command(*args, **kwargs):
 )
 def list(args):
     for app in iter_installed_apps(args.apps):
-        print '%s==%s' % (app.name, app.version)
+        print('%s==%s' % (app.name, app.version))
 
 
 @command(
@@ -61,7 +61,7 @@ def which(args):
     app = next(iter_installed_apps(args.app), None)
     if not app:
         return 1
-    print app.get_command()[0]
+    print(app.get_command()[0])
 
 
 @command(
@@ -71,7 +71,7 @@ def which(args):
 def export(args):
     environ = get_environ(args.apps)
     for k, v in sorted(environ.get_diff(reduce=True).iteritems()):
-        print 'export %s="%s"' % (k, v)
+        print('export %s="%s"' % (k, v))
 
 
 @command(
@@ -87,7 +87,7 @@ def hook_launchctl(args):
             cmd = ['launchctl', 'unsetenv', k]
         else:
             cmd = ['launchctl', 'setenv', k, v]
-        print ' '.join(cmd)
+        print(' '.join(cmd))
         if not args.dry_run:
             subprocess.check_call(cmd)
 
@@ -101,7 +101,7 @@ def site_packages(args):
     for app in iter_installed_apps(args.apps):
         path = app.get_site_packages()
         if path:
-            print path
+            print(path)
         else:
             res = 1
     return res
@@ -169,7 +169,7 @@ def exec_(args, unknown):
 
     command.extend(unknown)
     if args.which:
-        print ' '.join(command)
+        print(' '.join(command))
         return
 
     if args.background:
